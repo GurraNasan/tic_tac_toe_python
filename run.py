@@ -26,11 +26,13 @@ def get_player_name():
     """
     A function to get the players name and validate that it is only letters used. 
     """
-    name = input("What is you name?: ").capitalize()
+    
     while True:
+        name = input("What is you name?: ").capitalize()
+
         if name.isalpha():
             return name
         else:
-            print("You can only use letters")
+            print("You can only use letters, please try again")
 
 welcome()
