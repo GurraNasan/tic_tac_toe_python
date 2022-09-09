@@ -1,9 +1,12 @@
 
+player_name = none
 
 def welcome():
     """
-    A function to welcome the user to the game, get the users name and tell the rules.
+    A function to welcome the user to the game and tell the rules.
+    It also takes the users name and ask if the user is ready. 
     """
+
     print("")
     print("####################################")
     print("# Welcome to a game of TIC TAC TOE #")
