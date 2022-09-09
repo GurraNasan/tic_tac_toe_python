@@ -1,5 +1,4 @@
 
-player_name = none
 
 def welcome():
     """
@@ -11,7 +10,7 @@ def welcome():
     print("####################################")
     print("# Welcome to a game of TIC TAC TOE #")
     print("####################################\n")
-    player_name = input("What is your name?: ")
+    player_name = get_player_name()
 
     print(f"\nOk, {player_name} the rules for this game is:")
     print(
@@ -23,8 +22,15 @@ def welcome():
     ''')
     start_answer = input("Ready to start press y for yes, y for no: ")
     
-
-    
-
+def get_player_name():
+    """
+    A function to get the players name and validate that it is only letters used. 
+    """
+    name = input("What is you name?: ").capitalize()
+    while True:
+        if name.isalpha():
+            return name
+        else:
+            print("You can only use letters")
 
 welcome()
