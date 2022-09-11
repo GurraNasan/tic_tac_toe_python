@@ -182,17 +182,15 @@ def check_draw():
     return True
 
 
-def change_player(player):
+def change_player():
     """
     A function to change the player
     """
-    
+    global player
     if player == "x":
         player = "o"
-        return player
     else:
         player = "x"
-        return player
     
 # welcome()
 # ready_to_start()
@@ -202,21 +200,6 @@ create_the_board()
 users_move(board, player)
 show_board(board)
 print(check_draw())
-print(change_player(player))
-users_move(board, player)
-show_board(board)
-print(check_draw())
-print(change_player(player))
-users_move(board, player)
-show_board(board)
-print(check_draw())
-print(change_player(player))
-users_move(board, player)
-show_board(board)
-print(check_draw())
-print(change_player(player))
-users_move(board, player)
-show_board(board)
-print(check_draw())
-print(change_player(player))
+
+
 
