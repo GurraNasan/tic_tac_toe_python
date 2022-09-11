@@ -27,7 +27,7 @@ def get_player_name():
     """
     A function to get the players name and validate that it is only letters used. 
     """
-    
+
     while True:
         name = input("What is you name?: ").capitalize()
 
@@ -54,6 +54,19 @@ def ready_to_start():
         else:
             print("\nYou need to answer with a y or n\n")
 
+def create_the_board():
+    """
+    A function to create the gameboard. At the moment it will create a 3X3 squareboard.
+    """
+    board = []
+    for i in range(3):
+        row = []
+        for j in range(3):
+            row.append("_")
+        board.append(row)
 
-welcome()
-ready_to_start()
+    print(board)
+
+# welcome()
+# ready_to_start()
+create_the_board()
