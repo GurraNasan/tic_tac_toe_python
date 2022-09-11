@@ -1,8 +1,9 @@
 import random
 
 board = []
-player = "x"
+player = "X"
 win = None
+player_name = None
 
 
 def welcome():
@@ -54,6 +55,7 @@ def ready_to_start():
 
         if start_answer == "y":
             print("\nGame is starting")
+            main(player_name)
             break
         elif start_answer == "n":
             print("\nThats to bad, hope you will have a have a nice day")
@@ -97,8 +99,7 @@ def make_move(board, row, col, player):
     """
 
     board[row][col] = player
-    change_player()
-
+    
 
 def users_move(board, user):
     """
@@ -189,10 +190,10 @@ def change_player():
     A function to change the player
     """
     global player
-    if player == "x":
-        player = "o"
+    if player == "X":
+        player = "O"
     else:
-        player = "x"
+        player = "X"
 
 
 def computer_move():
@@ -200,21 +201,49 @@ def computer_move():
     function to make the computer do a random move
     """
 
-    while player == "o":
+    while player == "O":
         row_num = random.randint(0, 2)
         col_num = random.randint(0, 2)
         if board[row_num][col_num] == "[]":
             make_move(board, row_num, col_num, player)
+            change_player()
             
 
-# welcome()
-# ready_to_start()
+def main(name):
+    """
+    A function to run the game
+    """
+
+    create_the_board()
+    while True:
+        show_board(board)
+        users_move(board, player)
+        print("....")
+
+        if check_if_winner(board, player):
+            print(f"{name} you won!!")
+            break
+
+        if check_draw(board):
+            print("The game was draw")
+            break
+        print("Computer turn")
+        change_player()
+
+        computer_move()
+
+        show_board(board)
+
+        if check_if_winner(board, player):
+            print("Sorry you lost!!")
+            break
+
+        if check_draw(board):
+            print("The game was draw")
+            break
+    show_board(board)
+        
 
 
-create_the_board()
-users_move(board, player)
-show_board(board)
-computer_move()
-show_board(board)
-
-
+welcome()
+ready_to_start()
