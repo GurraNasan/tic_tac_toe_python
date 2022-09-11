@@ -92,7 +92,15 @@ def make_move(board,row,col,player):
     board[row][col]= player
 
 def users_move(board, user):
-    row, col = list(map(int, input("Enter row and column numbers as 1,1 to make your move: ").split(",")))
+    while True:
+        try: 
+            row, col = list(map(int, input("Enter row and column numbers as 1,1 to make your move: ").split(",")))
+            if row >= 3 or col >= 3:
+                raise ValueError("You put your move outside the board, please enter a new one\n")
+            break
+        except ValueError("Not valid move, enter only numbers")
+            
+    
     
     make_move(board, row, col, user)
 
