@@ -76,8 +76,19 @@ def show_board(board):
         for item in row:
             print(item, end=" ")
         print()
+    print("")
+    print("")
+def make_move(board,row,col,player):
+    """
+    A function to put a move in to the board
+    """
+    board[row][col]= player
 
 # welcome()
 # ready_to_start()
 create_the_board()
+show_board(board)
+make_move(board, 1, 1, "X")
+show_board(board)
+make_move(board, 0, 1, "O")
 show_board(board)
