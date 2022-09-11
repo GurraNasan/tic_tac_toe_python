@@ -49,7 +49,7 @@ def ready_to_start():
             print("\nGame is starting")
             break
         elif start_answer == "n":
-            print("\nOk have a nice day")
+            print("\nThats to bad, hope you will have a have a nice day")
             break
         else:
             print("\nYou need to answer with a y or n\n")
