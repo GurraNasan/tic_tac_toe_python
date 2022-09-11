@@ -170,14 +170,14 @@ def check_if_winner(board, player):
     return win
 
 
-def check_draw():
+def check_draw(board):
     """ 
     A function to check if the game is draw. 
     """
 
     for row in board:
         for item in row:
-            if item == ["[]"]:
+            if item == "[]":
                 return False
     return True
 
@@ -199,7 +199,8 @@ def change_player():
 create_the_board()
 users_move(board, player)
 show_board(board)
-print(check_draw())
+
+print(check_draw(board))
 
 
 
