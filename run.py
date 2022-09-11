@@ -12,6 +12,7 @@ def welcome():
     It also takes the users name and ask if the user is ready. 
     """
 
+    global player_name
     print("")
     print("####################################")
     print("# Welcome to a game of TIC TAC TOE #")
@@ -26,7 +27,7 @@ def welcome():
         You can get a sequence horizontally, vertical or diagonally. 
         If the board is full without anyone made a sequence it will be a tie  
         ''')
-    return player_name
+    
 
 
 def get_player_name():
