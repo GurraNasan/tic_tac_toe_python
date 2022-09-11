@@ -2,6 +2,7 @@
 board = []
 user = "X"
 computer = "O"
+win = None
 
 def welcome():
     """
@@ -108,7 +109,7 @@ def users_move(board, user):
                     "\nYou put your move outside the board\n"
                     )
             elif board[row][col] != "[]":
-                print("\Spot taken, make a new one\n")
+                print("\nSpot taken, make a new one\n")
             else:
                 break
         except ValueError:
@@ -116,14 +117,69 @@ def users_move(board, user):
              
     make_move(board, row, col, user)
 
+def check_if_winner(board, player):
+    """
+    A function to check if the current player is the winner.
+    """
 
+    num = len(board)
+    global win
+    
+    # Check rows
+    win = True
+    for i in range(num):
+        for j in range(num):
+            if board[i][j] != player.upper():
+                print("not row winner")
+                win = False
+                break
+        if win:
+            return win        
 
+    # Check collumns
+    win = True
+    for i in range(num):
+        for j in range(num):
+            if board[j][i] != player.upper():
+                print("not collum winner")
+                win = False
+                break
+        if win:
+            return win         
 
+    # Check diagonals
+    win = True
+    for i in range(num):
+        if board[i][i] != player.upper():
+            print("not di winner")
+            win = False
+            break
+    if win:
+        return win      
+
+    win = True
+    for i in range(num):
+        if board[i][i - 1 - i] != player.upper():
+            win = False
+            break
+             
+    return win
 # welcome()
 # ready_to_start()
 
 create_the_board()
 users_move(board, user)
 show_board(board)
+print(check_if_winner(board, user))
 users_move(board, user)
 show_board(board)
+print(check_if_winner(board,user))
+users_move(board, user)
+show_board(board)
+print(check_if_winner(board, user))
+users_move(board, user)
+show_board(board)
+print(check_if_winner(board, user))
+users_move(board, user)
+show_board(board)
+print(check_if_winner(board, user))
