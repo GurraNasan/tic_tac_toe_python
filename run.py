@@ -120,8 +120,8 @@ def users_move(board, user):
             else:
                 break
         except ValueError:
-            print("\nThat is not a valid move\n")
-             
+            print("\nThat is not a valid move\n")  
+
     make_move(board, row, col, user)
 
 
@@ -132,7 +132,7 @@ def check_if_winner(board, player):
 
     num = len(board)
     global win
-    
+   
     # Check rows
     win = True
     for i in range(num):
@@ -169,6 +169,20 @@ def check_if_winner(board, player):
             break
 
     return win
+
+
+def check_draw():
+    """ 
+    A function to check if the game is draw. 
+    """
+
+    for row in board:
+        for item in row:
+            if item == ["[]"]:
+                return False
+    return True
+        
+
 # welcome()
 # ready_to_start()
 
