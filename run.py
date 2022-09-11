@@ -4,6 +4,7 @@ user = "X"
 computer = "O"
 win = None
 
+
 def welcome():
     """
     A function to welcome the user to the game and tell the rules.
@@ -18,12 +19,12 @@ def welcome():
 
     print(f"\nOk, {player_name} the rules for this game is:")
     print(
-    '''
-    The goal is to get a sequence from one side of the board to the other.
-    You will take turns with the computer. 
-    You can get a sequence horizontally, vertical or diagonally. 
-    If the board is full without anyone made a sequence it will be a tie  
-    ''')
+        '''
+        The goal is to get a sequence from one side of the board to the other.
+        You will take turns with the computer. 
+        You can get a sequence horizontally, vertical or diagonally. 
+        If the board is full without anyone made a sequence it will be a tie  
+        ''')
     return player_name
 
 
@@ -49,7 +50,7 @@ def ready_to_start():
 
     while True:
 
-        start_answer = input("Ready to start press y for yes, n for no: ").lower()
+        start_answer = input("Ready to start press y or n: ").lower()
 
         if start_answer == "y":
             print("\nGame is starting")
@@ -59,6 +60,7 @@ def ready_to_start():
             break
         else:
             print("\nYou need to answer with a y or n\n")
+
 
 def create_the_board():
     """
@@ -75,6 +77,7 @@ def create_the_board():
         board.append(row)
     return board
 
+
 def show_board(board):
     """
     Function to show the board for the user
@@ -87,12 +90,14 @@ def show_board(board):
     print("")
     print("")
 
+
 def make_move(board, row, col, player):
     """
     A function to put a move in to the board
     """
 
     board[row][col] = player
+
 
 def users_move(board, user):
     """
@@ -101,10 +106,12 @@ def users_move(board, user):
 
     while True:
         try: 
-            row, col = list(map(int, input("Enter row and column as (1,1): ").split(",")))
+            row, col = list(map(int, input(
+                "Enter row and column as (1,1): "
+                ).split(",")))
             row = row - 1
             col = col - 1
-            if row >= 3 or col >=3:
+            if row >= 3 or col >= 3:
                 print(
                     "\nYou put your move outside the board\n"
                     )
@@ -116,6 +123,7 @@ def users_move(board, user):
             print("\nThat is not a valid move\n")
              
     make_move(board, row, col, user)
+
 
 def check_if_winner(board, player):
     """
@@ -130,7 +138,6 @@ def check_if_winner(board, player):
     for i in range(num):
         for j in range(num):
             if board[i][j] != player.upper():
-                print("not row winner")
                 win = False
                 break
         if win:
@@ -141,7 +148,6 @@ def check_if_winner(board, player):
     for i in range(num):
         for j in range(num):
             if board[j][i] != player.upper():
-                print("not collum winner")
                 win = False
                 break
         if win:
@@ -151,7 +157,6 @@ def check_if_winner(board, player):
     win = True
     for i in range(num):
         if board[i][i] != player.upper():
-            print("not di winner")
             win = False
             break
     if win:
@@ -162,24 +167,13 @@ def check_if_winner(board, player):
         if board[i][i - 1 - i] != player.upper():
             win = False
             break
-             
+
     return win
 # welcome()
 # ready_to_start()
 
+
 create_the_board()
-users_move(board, user)
-show_board(board)
-print(check_if_winner(board, user))
-users_move(board, user)
-show_board(board)
-print(check_if_winner(board,user))
-users_move(board, user)
-show_board(board)
-print(check_if_winner(board, user))
-users_move(board, user)
-show_board(board)
-print(check_if_winner(board, user))
 users_move(board, user)
 show_board(board)
 print(check_if_winner(board, user))
