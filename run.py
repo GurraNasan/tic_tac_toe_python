@@ -29,7 +29,6 @@ def welcome():
         ''')
     
 
-
 def get_player_name():
     """
     A function to get the players name and 
@@ -241,7 +240,6 @@ def main(name):
             print("\nThe game was draw\n")
             break
     show_board(board)
-        
 
 
 welcome()
