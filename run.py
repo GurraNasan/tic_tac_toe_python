@@ -107,6 +107,8 @@ def users_move(board, user):
                 print(
                     "\nYou put your move outside the board\n"
                     )
+            elif board[row][col] != "[]":
+                print("\Spot taken, make a new one\n")
             else:
                 break
         except ValueError:
@@ -114,9 +116,14 @@ def users_move(board, user):
              
     make_move(board, row, col, user)
 
+
+
+
 # welcome()
 # ready_to_start()
 
 create_the_board()
+users_move(board, user)
+show_board(board)
 users_move(board, user)
 show_board(board)
