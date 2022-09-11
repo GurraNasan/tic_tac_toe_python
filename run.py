@@ -1,5 +1,7 @@
 
 board = []
+user = "X"
+computer = "O"
 
 def welcome():
     """
@@ -42,6 +44,7 @@ def ready_to_start():
     """
     A function to check if the user is ready to start the game
     """
+
     while True:
 
         start_answer = input("Ready to start press y for yes, n for no: ").lower()
@@ -59,6 +62,7 @@ def create_the_board():
     """
     A function to create the gameboard. At the moment it will create a 3X3 squareboard.
     """
+
     global board
     size = 3
     for i in range(size):
@@ -72,23 +76,28 @@ def show_board(board):
     """
     Function to show the board for the user
     """
+
     for row in board:
         for item in row:
             print(item, end=" ")
         print()
     print("")
     print("")
+
 def make_move(board,row,col,player):
     """
     A function to put a move in to the board
     """
+
     board[row][col]= player
+
+def users_move(board, user):
+    row, col = list(map(int, input("Enter row and column numbers as 1,1 to make your move: ").split(",")))
+    
+    make_move(board, row, col, user)
 
 # welcome()
 # ready_to_start()
 create_the_board()
-show_board(board)
-make_move(board, 1, 1, "X")
-show_board(board)
-make_move(board, 0, 1, "O")
+users_move(board, user)
 show_board(board)
