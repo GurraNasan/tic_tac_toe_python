@@ -1,3 +1,4 @@
+import random
 
 board = []
 player = "x"
@@ -96,6 +97,7 @@ def make_move(board, row, col, player):
     """
 
     board[row][col] = player
+    change_player()
 
 
 def users_move(board, user):
@@ -191,7 +193,20 @@ def change_player():
         player = "o"
     else:
         player = "x"
-    
+
+
+def computer_move():
+    """
+    function to make the computer do a random move
+    """
+
+    while player == "o":
+        row_num = random.randint(0, 2)
+        col_num = random.randint(0, 2)
+        if board[row_num][col_num] == "[]":
+            make_move(board, row_num, col_num, player)
+            
+
 # welcome()
 # ready_to_start()
 
@@ -199,8 +214,7 @@ def change_player():
 create_the_board()
 users_move(board, player)
 show_board(board)
-
-print(check_draw(board))
-
+computer_move()
+show_board(board)
 
 
