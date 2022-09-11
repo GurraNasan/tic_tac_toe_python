@@ -1,4 +1,5 @@
 
+board = []
 
 def welcome():
     """
@@ -58,15 +59,25 @@ def create_the_board():
     """
     A function to create the gameboard. At the moment it will create a 3X3 squareboard.
     """
-    board = []
-    for i in range(3):
+    global board
+    size = 3
+    for i in range(size):
         row = []
-        for j in range(3):
-            row.append("_")
+        for j in range(size):
+            row.append("[]")
         board.append(row)
+    return board
 
-    print(board)
+def show_board(board):
+    """
+    Function to show the board for the user
+    """
+    for row in board:
+        for item in row:
+            print(item, end=" ")
+        print()
 
 # welcome()
 # ready_to_start()
 create_the_board()
+show_board(board)
