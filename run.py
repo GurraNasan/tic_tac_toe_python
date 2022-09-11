@@ -76,7 +76,7 @@ def create_the_board():
     for i in range(size):
         row = []
         for j in range(size):
-            row.append("[]")
+            row.append("_")
         board.append(row)
     return board
 
@@ -118,7 +118,7 @@ def users_move(board, user):
                 print(
                     "\nYou put your move outside the board\n"
                     )
-            elif board[row][col] != "[]":
+            elif board[row][col] != "_":
                 print("\nSpot taken, make a new one\n")
             else:
                 break
@@ -181,7 +181,7 @@ def check_draw(board):
 
     for row in board:
         for item in row:
-            if item == "[]":
+            if item == "_":
                 return False
     return True
 
@@ -205,7 +205,7 @@ def computer_move():
     while player == "O":
         row_num = random.randint(0, 2)
         col_num = random.randint(0, 2)
-        if board[row_num][col_num] == "[]":
+        if board[row_num][col_num] == "_":
             make_move(board, row_num, col_num, player)
             change_player()
             
@@ -219,28 +219,26 @@ def main(name):
     while True:
         show_board(board)
         users_move(board, player)
-        print("....")
-
+        
         if check_if_winner(board, player):
-            print(f"{name} you won!!")
+            print(f"\n{name} you won!!\n")
             break
 
         if check_draw(board):
-            print("The game was draw")
+            print("\nThe game was draw\n")
             break
-        print("Computer turn")
+
+        print("\nThe board:")
         change_player()
 
         computer_move()
 
-        show_board(board)
-
         if check_if_winner(board, player):
-            print("Sorry you lost!!")
+            print("\nSorry you lost!!\n")
             break
 
         if check_draw(board):
-            print("The game was draw")
+            print("\nThe game was draw\n")
             break
     show_board(board)
         
