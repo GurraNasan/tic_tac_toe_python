@@ -1,7 +1,6 @@
 
 board = []
-user = "X"
-computer = "O"
+player = "x"
 win = None
 
 
@@ -181,13 +180,43 @@ def check_draw():
             if item == ["[]"]:
                 return False
     return True
-        
 
+
+def change_player(player):
+    """
+    A function to change the player
+    """
+    
+    if player == "x":
+        player = "o"
+        return player
+    else:
+        player = "x"
+        return player
+    
 # welcome()
 # ready_to_start()
 
 
 create_the_board()
-users_move(board, user)
+users_move(board, player)
 show_board(board)
-print(check_if_winner(board, user))
+print(check_draw())
+print(change_player(player))
+users_move(board, player)
+show_board(board)
+print(check_draw())
+print(change_player(player))
+users_move(board, player)
+show_board(board)
+print(check_draw())
+print(change_player(player))
+users_move(board, player)
+show_board(board)
+print(check_draw())
+print(change_player(player))
+users_move(board, player)
+show_board(board)
+print(check_draw())
+print(change_player(player))
+
