@@ -136,8 +136,8 @@ def check_if_winner(board, player):
     global win
    
     # Check rows
-    win = True
-    for i in range(num):
+    for i in range(num): 
+        win = True  
         for j in range(num):
             if board[i][j] != player.upper():
                 win = False
@@ -146,8 +146,8 @@ def check_if_winner(board, player):
             return win        
 
     # Check collumns
-    win = True
     for i in range(num):
+        win = True
         for j in range(num):
             if board[j][i] != player.upper():
                 win = False
@@ -156,16 +156,16 @@ def check_if_winner(board, player):
             return win         
 
     # Check diagonals
-    win = True
     for i in range(num):
+        win = True
         if board[i][i] != player.upper():
             win = False
             break
     if win:
         return win      
 
-    win = True
     for i in range(num):
+        win = True
         if board[i][i - 1 - i] != player.upper():
             win = False
             break
