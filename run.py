@@ -169,7 +169,8 @@ def check_if_winner(board, player):
         if board[i][i - 1 - i] != player.upper():
             win = False
             break
-
+    if win:
+        return win 
     return win
 
 
