@@ -113,7 +113,7 @@ def users_move(board, user):
                 ).split(",")))
             row = row - 1
             col = col - 1
-            if row >= 3 or col >= 3:
+            if row >= 3 or col >= 3 or row <= -1 or col <= -1:
                 print(
                     "\nYou put your move outside the board\n"
                     )
