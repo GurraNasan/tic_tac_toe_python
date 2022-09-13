@@ -48,10 +48,9 @@ def ready_to_start():
     """
     A function to check if the user is ready to start the game
     """
-
     while True:
 
-        start_answer = input("Ready to start press y or n: ").lower()
+        start_answer = input("Start new game press y or n: ").lower()
 
         if start_answer == "y":
             print("\nGame is starting")
@@ -240,7 +239,7 @@ def main(name):
             print("\nThe game was draw\n")
             break
     show_board(board)
-
+    ready_to_start()
 
 welcome()
 ready_to_start()
