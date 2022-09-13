@@ -5,16 +5,13 @@ import random
 board = []
 player = "X"
 win = None
-player_name = None
 
-# Game Functions
+
 def welcome():
     """
     A function to welcome the user to the game and tell the rules.
-    It also takes the users name and ask if the user is ready. 
+    It also takes the users name and ask if the user is ready.
     """
-
-    global player_name
     print("")
     print("####################################")
     print("# Welcome to a game of TIC TAC TOE #")
@@ -29,7 +26,9 @@ def welcome():
         You can get a sequence horizontally, vertical or diagonally. 
         If the board is full without anyone made a sequence it will be a tie  
         ''')
-    
+
+    return player_name
+
 
 def get_player_name():
     """
@@ -46,7 +45,7 @@ def get_player_name():
             print("You can only use letters, please try again")
 
 
-def ready_to_start():
+def ready_to_start(player_name):
     """
     A function to check if the user is ready to start the game
     """
@@ -164,15 +163,16 @@ def check_if_winner(board, player):
             win = False
             break
     if win:
-        return win      
+        return win
 
     for i in range(num):
         win = True
-        if board[i][i - 1 - i] != player.upper():
+        if board[i][num - 1 - i] != player.upper():
             win = False
             break
     if win:
-        return win 
+        return win
+
     return win
 
 
@@ -240,7 +240,8 @@ def main(name):
             break
 
     show_board(board)
-    ready_to_start()
+    ready_to_start(name)
 
-welcome()
-ready_to_start()
+
+player_name = welcome()
+ready_to_start(player_name)
