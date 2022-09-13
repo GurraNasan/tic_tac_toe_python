@@ -1,11 +1,13 @@
+# Import modules
 import random
 
+# Set global variabels
 board = []
 player = "X"
 win = None
 player_name = None
 
-
+# Game Functions
 def welcome():
     """
     A function to welcome the user to the game and tell the rules.
