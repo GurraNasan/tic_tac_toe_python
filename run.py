@@ -201,7 +201,7 @@ def change_player():
 
 def computer_move():
     """
-    function to make the computer do a random move
+    Function to make the computer do a random move
     """
 
     while player == "O":
