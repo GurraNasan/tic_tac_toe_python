@@ -18,13 +18,13 @@ def welcome():
     print("####################################\n")
     player_name = get_player_name()
 
-    print(f"\nOk, {player_name} the rules for this game is:")
+    print(f"\nOk, {player_name} the rules for this game are:")
     print(
         '''
         The goal is to get a sequence from one side of the board to the other.
-        You will take turns with the computer. 
-        You can get a sequence horizontally, vertical or diagonally. 
-        If the board is full without anyone made a sequence it will be a tie  
+        You will take turns with the computer.
+        You can get a sequence horizontally, vertical or diagonally.
+        If the board is full without anyone made a sequence it will be a tie.
         ''')
 
     return player_name
@@ -32,8 +32,8 @@ def welcome():
 
 def get_player_name():
     """
-    A function to get the players name and 
-    validate that it is only letters used. 
+    A function to get the players name and
+    validate that it is only letters used.
     """
 
     while True:
@@ -100,7 +100,7 @@ def make_move(board, row, col, player):
     """
 
     board[row][col] = player
-    
+
 
 def users_move(board, user):
     """
@@ -108,7 +108,7 @@ def users_move(board, user):
     """
 
     while True:
-        try: 
+        try:
             row, col = list(map(int, input(
                 "Enter row and column as (1,1): "
                 ).split(",")))
@@ -123,7 +123,7 @@ def users_move(board, user):
             else:
                 break
         except ValueError:
-            print("\nThat is not a valid move\n")  
+            print("\nThat is not a valid move\n")
 
     make_move(board, row, col, user)
 
@@ -135,31 +135,31 @@ def check_if_winner(board, player):
 
     num = len(board)
     global win
-   
+
     # Check rows
-    for i in range(num): 
-        win = True  
+    for i in range(num):
+        win = True
         for j in range(num):
-            if board[i][j] != player.upper():
+            if board[i][j] != player:
                 win = False
                 break
         if win:
-            return win        
+            return win
 
     # Check collumns
     for i in range(num):
         win = True
         for j in range(num):
-            if board[j][i] != player.upper():
+            if board[j][i] != player:
                 win = False
                 break
         if win:
-            return win         
+            return win
 
     # Check diagonals
     for i in range(num):
         win = True
-        if board[i][i] != player.upper():
+        if board[i][i] != player:
             win = False
             break
     if win:
@@ -167,7 +167,7 @@ def check_if_winner(board, player):
 
     for i in range(num):
         win = True
-        if board[i][num - 1 - i] != player.upper():
+        if board[i][num - 1 - i] != player:
             win = False
             break
     if win:
@@ -177,8 +177,8 @@ def check_if_winner(board, player):
 
 
 def check_draw(board):
-    """ 
-    A function to check if the game is draw. 
+    """
+    A function to check if the game is draw.
     """
 
     for row in board:
@@ -209,12 +209,12 @@ def computer_move():
         col_num = random.randint(0, 2)
         if board[row_num][col_num] == "_":
             make_move(board, row_num, col_num, player)
-            
+
             if check_if_winner(board, player):
                 print("\nSorry you lost!!\n")
                 return True
             change_player()
-            
+
 
 def main(name):
     """
@@ -225,7 +225,7 @@ def main(name):
     while True:
         show_board(board)
         users_move(board, player)
-        
+
         if check_if_winner(board, player):
             print(f"\n{name} you won!!\n")
             break
