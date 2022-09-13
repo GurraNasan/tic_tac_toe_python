@@ -70,6 +70,7 @@ def create_the_board():
     """
 
     global board
+    board = []
     size = 3
     for i in range(size):
         row = []
@@ -205,6 +206,10 @@ def computer_move():
         col_num = random.randint(0, 2)
         if board[row_num][col_num] == "_":
             make_move(board, row_num, col_num, player)
+            
+            if check_if_winner(board, player):
+                print("\nSorry you lost!!\n")
+                return True
             change_player()
             
 
@@ -228,16 +233,9 @@ def main(name):
 
         print("\nThe board:")
         change_player()
-
-        computer_move()
-
-        if check_if_winner(board, player):
-            print("\nSorry you lost!!\n")
+        if computer_move():
             break
 
-        if check_draw(board):
-            print("\nThe game was draw\n")
-            break
     show_board(board)
     ready_to_start()
 
